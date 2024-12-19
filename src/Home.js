@@ -4,8 +4,8 @@ import './App.css';
 import './techstack';
 import TechStack from "./techstack";
 import './output.css';
-import sudoku from './img/sudoku.jpg'
 import stopwatch from './img/stopwatch.PNG';
+import todoBoard from './img/todo board.PNG';
 
 
 
@@ -34,18 +34,31 @@ function Home() {
       <div className="tech-stack-div">
       <TechStack />
       <div class="mb-1 w-fit rounded-md bg-muted px-1.5 py-1 text-muted-foreground text-xs" className="recent-projects">Recent projects</div>
+      <div className="cards">
       <div class="card">
   <img src={stopwatch} class="card-img-top" alt="..." />
   <div class="card-body">
     <h5 class="card-title">Stopwatch App</h5>
     <p class="card-text">This is a Stopwatch App i created in react and tailwind css</p>
-    <a href="https://marioskaraiskos.github.io/10-mini-projects-in-react/"                  
+    <a href="https://marioskaraiskos.github.io/stopwatch/"                  
     class="btn-primary">Press Here to see my Stopwatch App!
     </a>
   </div>
-</div>
 
       </div>
+      <div class="card">
+  <img src={todoBoard} class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">Todo Board App</h5>
+    <p class="card-text">This is a Todo Board App i also created in react and tailwind css! :)</p>
+    <a href="https://marioskaraiskos.github.io/to-do-board/"                  
+    class="btn-primary">Press Here to see my To-Do Board App!
+    </a>
+  </div>
+
+      </div>
+      </div>
+    </div>
     </div>
   );
 }

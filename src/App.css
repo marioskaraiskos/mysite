@@ -275,11 +275,9 @@ h1 {
 }
 
 .card {
-  width: 10%;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
-  margin-left: 34%;
 }
 
 .linkedin-container {
@@ -298,3 +296,9 @@ h1 {
 .btn-primary {
   background-color: rgb(126, 110, 161);
 }
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; 
+  }
