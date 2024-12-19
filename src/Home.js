@@ -39,7 +39,9 @@ function Home() {
   <div class="card-body">
     <h5 class="card-title">Stopwatch App</h5>
     <p class="card-text">This is a Stopwatch App i created in react and tailwind css</p>
-    <a href="https://marioskaraiskos.github.io/10-mini-projects-in-react/" class="btn btn-primary">Go somewhere</a>
+    <a href="https://marioskaraiskos.github.io/10-mini-projects-in-react/"                  
+    class="btn-primary">Press Here to see my Stopwatch App!
+    </a>
   </div>
 </div>
 

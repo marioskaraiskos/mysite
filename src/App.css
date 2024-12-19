@@ -289,3 +289,12 @@ h1 {
   margin-left: 20px;
   width: 30%;
 }
+
+.card-title {
+  color: grey;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: rgb(126, 110, 161);
+}
