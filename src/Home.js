@@ -5,7 +5,7 @@ import './techstack';
 import TechStack from "./techstack";
 import './output.css';
 import stopwatch from './img/stopwatch.PNG';
-import todoBoard from './img/todo board.png';
+import todoBoard from './img/todo board.PNG';
 
 
 
