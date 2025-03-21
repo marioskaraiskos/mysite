@@ -1,0 +1,21 @@
+.projects-list {
+    list-style-type: none; /* Ensure the bullet point is shown */
+    padding-left: 20px; /* Space for the bullet */
+    margin-left: 0; /* Remove default margin if any */
+}
+
+.projects-list li {
+    margin-bottom: 10px; /* Adds some space between list items */
+}
+
+.projects-list li a {
+    display: inline-block; /* Makes the link an inline block, so the bullet aligns next to the text */
+    margin-right: 10px; /* Adds space between text and image */
+}
+
+.card-img-top {
+    display: block; /* Ensures the image is displayed as a block element */
+    margin-top: 5px; /* Adds some space between the text and the image */
+    width: 100%; /* Adjust the width of the image to fit the container */
+    max-width: 300px; /* Optionally control the image size */
+}
