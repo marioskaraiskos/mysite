@@ -2,9 +2,12 @@
   <head>
     <title>Page Not Found</title>
     <script>
-      // Redirect to index.html while preserving the route
-      const redirectTo = window.location.pathname.replace('/mysite', '');
-      window.location.replace('/mysite' + redirectTo);
+      // Check if the current page is already the index.html
+      if (!window.location.pathname.includes("index.html")) {
+        // Redirect to index.html while preserving the route
+        const redirectTo = window.location.pathname.replace('/mysite', '');
+        window.location.replace('/mysite/index.html#' + redirectTo);
+      }
     </script>
   </head>
   <body>
