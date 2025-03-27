@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // Use BrowserRouter
+import {  HashRouter as Router, Routes, Route, Link } from "react-router-dom"; // Use BrowserRouter
 import { FaSun, FaMoon } from "react-icons/fa";
 import './App.css';
 import Home from "./Home";
@@ -23,7 +23,7 @@ function App() {
   };
 
   return (
-    <Router basename="/mysite">
+    <Router>
       <div className="App">
         <nav className="navbar">
           <form className="container-fluid justify-content-start">
