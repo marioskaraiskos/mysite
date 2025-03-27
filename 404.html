@@ -1,24 +1,14 @@
 <html>
   <head>
     <title>Page Not Found</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        margin-top: 50px;
-      }
-      a {
-        color: #007bff;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-    </style>
+    <script>
+      // Redirect to index.html while preserving the route
+      const redirectTo = window.location.pathname.replace('/mysite', '');
+      window.location.replace('/mysite' + redirectTo);
+    </script>
   </head>
   <body>
     <h1>404 - Page Not Found</h1>
-    <p>Sorry, we couldn't find the page you were looking for.</p>
-    <p><a href="javascript:history.back()">Go Back</a> or <a href="/mysite/">Return to Homepage</a></p>
+    <p>Redirecting...</p>
   </body>
 </html>
