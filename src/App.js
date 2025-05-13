@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {  HashRouter as Router, Routes, Route, Link } from "react-router-dom"; // Use BrowserRouter
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { FaSun, FaMoon } from "react-icons/fa";
+
 import './App.css';
 import Home from "./Home";
 import Projects from "./Projects";
 import Contact from "./Contact";
+import Login from "./Login";
+import Register from "./Register";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -26,47 +29,34 @@ function App() {
     <Router>
       <div className="App">
         <nav className="navbar">
-          <form className="container-fluid justify-content-start">
+          <div className="container-fluid justify-content-start">
             <div className="buttonContainer">
               <div className="left">
                 <Link to="/" className="marioskaraiskos">
-                  <span className="letter">M</span>
-                  <span className="letter">A</span>
-                  <span className="letter">R</span>
-                  <span className="letter">I</span>
-                  <span className="letter">O</span>
-                  <span className="letter">S</span>
-                  <span className="letter">_</span>
-                  <span className="letter">K</span>
-                  <span className="letter">A</span>
-                  <span className="letter">R</span>
-                  <span className="letter">A</span>
-                  <span className="letter">I</span>
-                  <span className="letter">S</span>
-                  <span className="letter">K</span>
-                  <span className="letter">O</span>
-                  <span className="letter">S</span>
+                  {"MARIOS_KARAISKOS".split("").map((char, i) => (
+                    <span key={i} className="letter">{char}</span>
+                  ))}
                 </Link>
               </div>
               <div className="right">
-                <Link to="/projects" className="projects">
-                  Projects
-                </Link>
-                <Link to="/contact" className="contact">
-                  Contact
-                </Link>
+                <Link to="/projects" className="projects">Projects</Link>
+                <Link to="/contact" className="contact">Contact</Link>
                 <button className="theme-toggle-btn" onClick={toggleTheme}>
                   {theme === "light" ? <FaMoon size={24} /> : <FaSun size={24} />}
                 </button>
+                <Link to="/login" className="login">Login</Link>
+                <Link to="/register" className="register">Register</Link>
               </div>
             </div>
-          </form>
+          </div>
         </nav>
 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </Router>
