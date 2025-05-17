@@ -36,7 +36,7 @@ function Home() {
       <div class="mb-1 w-fit rounded-md bg-muted px-1.5 py-1 text-muted-foreground text-xs" className="recent-projects">Recent projects</div>
       <div className="cards">
       <div class="card">
-  <img src={stopwatch} class="card-img-top" alt="..." />
+  <img src={stopwatch} class="card-img-top" alt="..." className="stopwatch" />
   <div class="card-body">
     <h5 class="card-title">Stopwatch App</h5>
     <p class="card-text">This is a Stopwatch App i created in react and tailwind css</p>
@@ -47,7 +47,7 @@ function Home() {
 
       </div>
       <div class="card">
-  <img src={todoBoard} class="card-img-top" alt="..." />
+  <img src={todoBoard} class="card-img-top" alt="..." className="todoapp-img" />
   <div class="card-body">
     <h5 class="card-title">Todo Board App</h5>
     <p class="card-text">This is a Todo Board App i also created in react and tailwind css! :)</p>
