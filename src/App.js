@@ -11,11 +11,19 @@ import Register from "./Register";
 
 function App() {
   const [theme, setTheme] = useState("light");
+  const [loggedInUser, setLoggedInUser] = useState(localStorage.getItem("loggedInUser") || "");
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme);
     document.body.setAttribute("data-theme", savedTheme);
+
+    // Listen for login changes from Login component
+    const handleStorage = () => {
+      setLoggedInUser(localStorage.getItem("loggedInUser") || "");
+    };
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
   }, []);
 
   const toggleTheme = () => {
@@ -23,6 +31,13 @@ function App() {
     setTheme(newTheme);
     document.body.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
+  };
+
+  // Helper for initials
+  const getInitials = (name) => {
+    if (!name) return "";
+    if (name.length === 1) return name[0].toUpperCase();
+    return (name[0] + name[name.length - 1]).toUpperCase();
   };
 
   return (
@@ -51,11 +66,16 @@ function App() {
           </div>
         </nav>
 
+        {/* User circle always visible if logged in */}
+        {loggedInUser && (
+          <div className="user-circle">{getInitials(loggedInUser)}</div>
+        )}
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setLoggedInUser={setLoggedInUser} />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       </div>
