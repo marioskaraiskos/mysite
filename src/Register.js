@@ -13,7 +13,7 @@ function Register() {
     setMessage("");
     setIsSuccess(null);
     try {
-      const response = await axios.post("http://localhost:5000/register", {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/register`, {
         username,
         password,
       });
