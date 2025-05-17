@@ -11,25 +11,25 @@ body[data-theme="light"] {
 
 body {
   font-family: Arial, sans-serif;
-
 }
 
 body[data-theme="light"] .navbar {
-  background-color: #f8f9fa; /* Light gray */
+  background-color: #f8f9fa;
   color: black;
 }
 
 .navbar {
   margin-bottom: 40px;
 }
+
 /* Dark Theme */
 body[data-theme="dark"] {
-  background-color: #121212; /* Dark background */
+  background-color: #121212;
   color: white;
 }
 
 body[data-theme="dark"] .navbar {
-  background-color: #121212; /* Dark gray */
+  background-color: #121212;
   color: white;
 }
 
@@ -48,7 +48,7 @@ button {
   font-size: 20px;
   padding: 5px 10px;
   cursor: pointer;
-  color: inherit; /* Inherit color based on theme */
+  color: inherit;
 }
 
 /* Individual Button Classes */
@@ -74,17 +74,16 @@ button {
 /* Letter Animations */
 .marioskaraiskos .letter {
   display: inline-block;
-  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transformation */
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .marioskaraiskos:hover .letter {
-  transform: translateY(-10px) rotate(15deg); /* Moves and rotates each letter */
+  transform: translateY(-10px) rotate(15deg);
 }
 
 .marioskaraiskos:hover .letter:nth-child(1) { transition-delay: 0.1s; }
 .marioskaraiskos:hover .letter:nth-child(2) { transition-delay: 0.2s; }
 .marioskaraiskos:hover .letter:nth-child(3) { transition-delay: 0.3s; }
-/* Continue for other letters */
 
 /* Theme Toggle Button */
 .theme-toggle-btn {
@@ -92,14 +91,13 @@ button {
   border: none;
   cursor: pointer;
   outline: none;
-  color: inherit; /* Match current theme */
+  color: inherit;
 }
 
 .theme-toggle-btn:hover {
   transform: scale(1.1);
   transition: transform 0.2s, color 0.2s;
 }
-
 
 /* Profile picture styling */
 .profile-picture {
@@ -112,10 +110,8 @@ button {
 .MainPage {
   display: flex;
   justify-content: center;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
 }
-
-
 
 h1 {
   font-size: 30px;
@@ -127,37 +123,23 @@ h1 {
   transition: transform 0.3s ease;
 }
 
-/* Animation on hover */
 .wave-emoji:hover {
   animation: wave 0.6s ease-in-out infinite;
 }
 
-/* Keyframes for waving effect */
 @keyframes wave {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(10deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(-10deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+  0% { transform: rotate(0deg);}
+  25% { transform: rotate(10deg);}
+  50% { transform: rotate(0deg);}
+  75% { transform: rotate(-10deg);}
+  100% { transform: rotate(0deg);}
 }
-
 
 .picture-container {
   width: 30%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  
 }
 
 .picture {
@@ -190,8 +172,8 @@ h1 {
   font-size: 14px;
   color: inherit;
   text-align: center;
-
 }
+
 .status {
   display: flex;
   align-items: center;
@@ -214,18 +196,16 @@ h1 {
   margin-top: 30px;
 }
 
-
-
-.projects , .contact {
+.projects, .contact {
   display: inline-block;
   padding: 10px 20px;
-  background-color: inherit ; /* Button background color */
-  color: inherit; /* Button text color */
+  background-color: inherit;
+  color: inherit;
   text-align: center;
-  text-decoration: none; /* Removes underline from links */
-  border: none; /* Removes border for the button look */
-  border-radius: 4px; /* Rounded corners for the button */
-  font-size: 16px; /* Font size for the button */
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -301,28 +281,47 @@ h1 {
 }
 
 .cards {
-    display: flex;
-    flex-direction: column;
-    gap: 40px; 
-  }
-/* Center the form container */
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* --- LOGIN/REGISTER FORM STYLES --- */
 .form-container {
   display: flex;
-  justify-content: center;  /* Center horizontally */
-  align-items: center;      /* Center vertically */
-  height: 100vh;            /* Full viewport height */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #222;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin: 40px auto 0 auto; /* Less margin on top, none at bottom */
+  padding: 1.5rem 2rem;
+  position: relative;
+}
+
+@media (prefers-color-scheme: dark) {
+  .form-container {
+    background: #222;
+    color: #fff;
+  }
+}
+
+.title-container {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  width: 100%;
+  color: inherit;
+  background: transparent;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background-color: #fff;   /* White background */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;         /* Maximum width of the form */
 }
 
 .input-group {
@@ -354,70 +353,6 @@ button.btn-primary {
 
 button.btn-primary:hover {
   background-color: #5b4b79;
-}
-
-/* Container for the title */
-.title-container {
-  display: flex;
-  flex-direction: row; /* This ensures that the title is aligned horizontally */
-  justify-content: center; /* Center the title horizontally */
-  margin-bottom: 20px; /* Add some space below the title */
-}
-
-/* The rest of the styling remains the same */
-/* Define global color variables */
-:root {
-  --background-color-light: #ffffff; /* Light background color */
-  --background-color-dark: #121212; /* Dark background color */
-  --text-color-light: #000000; /* Light mode text color (black) */
-  --text-color-dark: #ffffff; /* Dark mode text color (white) */
-}
-
-/* Default (Light mode) settings */
-body {
-  background-color: var(--background-color-light);
-  color: var(--text-color-light);
-}
-
-/* Dark mode settings */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--background-color-dark);
-    color: var(--text-color-dark);
-  }
-}
-
-/* General styles for form-container (login/register page) */
-.form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full screen height */
-  background-color: inherit; /* Inherit background color from body */
-  color: black; /* Inherit text color from body */
-}
-
-/* Input fields and buttons inside the form */
-input, button {
-  padding: 10px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: inherit; /* Ensure the background color matches the page */
-  color: black; /* Ensure text color matches */
-}
-
-/* Optional: Style buttons to make them stand out */
-button {
-  cursor: pointer;
-  background-color: #4be010; /* Purple button */
-  color: white;
-  border: none;
-}
-
-button:hover {
-  background-color: #25e40c; /* Darker purple when hovered */
 }
 
 /* Add to App.css */
