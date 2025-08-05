@@ -1,31 +1,46 @@
 import React, { useState } from "react";
-import "./Login.css"; // Only affects Login component
+import "./Login.css";
 import axios from "axios";
 
 function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    setLoading(true);
+
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
         username,
         password,
       });
+
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("loggedInUser", username);
+
       setSuccess(response.data.message || "Logged in successfully!");
       setLoggedInUser(username);
       if (props.setLoggedInUser) props.setLoggedInUser(username);
     } catch (err) {
       setError("Invalid credentials or server error.");
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -38,9 +53,7 @@ function Login(props) {
   return (
     <div className="login-form-container">
       {loggedInUser && (
-        <div className="login-user-circle">
-          {getInitials(loggedInUser)}
-        </div>
+        <div className="login-user-circle">{getInitials(loggedInUser)}</div>
       )}
       <div className="login-title">
         <h2>Login</h2>
@@ -60,7 +73,7 @@ function Login(props) {
         <div className="login-input-group">
           <label htmlFor="password">Password</label>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -68,9 +81,36 @@ function Login(props) {
             required
           />
         </div>
+        <div className="login-input-group">
+          <label htmlFor="confirmPassword">Confirm Password</label>
+          <input
+            type={showPassword ? "text" : "password"}
+            id="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            placeholder="Re-enter your password"
+            required
+          />
+        </div>
+
+        <div className="login-input-group">
+          <label>
+            <input
+              type="checkbox"
+              checked={showPassword}
+              onChange={() => setShowPassword(!showPassword)}
+            />{" "}
+            Show Passwords
+          </label>
+        </div>
+
+        {loading && <p style={{ color: "blue" }}>Please wait while we are trying to connect to your account...</p>}
         {error && <p style={{ color: "red" }}>{error}</p>}
         {success && <p style={{ color: "green" }}>{success}</p>}
-        <button type="submit" className="login-btn">Login</button>
+
+        <button type="submit" className="login-btn" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
+        </button>
       </form>
     </div>
   );
