@@ -3,17 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node server.js"
-=======
+    "server": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> ddcad649aeb1b542ea39b05064351b7521729e78
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-<<<<<<< HEAD
+  "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
@@ -21,16 +17,5 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.17.0"
-  },
-  "description": ""
-=======
-  "description": "",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^5.1.0",
-    "mongodb": "^6.15.0",
-    "mongoose": "^8.13.2"
   }
->>>>>>> ddcad649aeb1b542ea39b05064351b7521729e78
 }
