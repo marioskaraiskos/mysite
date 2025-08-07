@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./Register.css"; 
+import "./Register.css";
 
 function Register() {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState(""); // new
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(null);
@@ -13,15 +14,16 @@ function Register() {
     setMessage("");
     setIsSuccess(null);
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/register`, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, {
         username,
+        email,
         password,
       });
-      setMessage(response.data.message);
+      setMessage(response.data.msg || "Registration successful.");
       setIsSuccess(true);
     } catch (err) {
       setMessage(
-        err.response?.data?.message || "Registration failed. Try another username."
+        err.response?.data?.msg || "Registration failed. Try another email or username."
       );
       setIsSuccess(false);
     }
@@ -41,6 +43,17 @@ function Register() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Enter your username"
+            required
+          />
+        </div>
+        <div className="register-input-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
             required
           />
         </div>
