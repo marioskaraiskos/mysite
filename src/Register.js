@@ -6,13 +6,23 @@ function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState(""); // new
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleRegister = async (e) => {
     e.preventDefault();
     setMessage("");
     setIsSuccess(null);
+
+      if (password !== confirmPassword) {
+      setMessage("Passwords do not match.");
+      setIsSuccess(false);
+      return; // stop submission
+    }
+
+    
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, {
         username,
@@ -60,13 +70,31 @@ function Register() {
         <div className="register-input-group">
           <label htmlFor="password">Password</label>
           <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-            required
-          />
+  type={showPassword ? "text" : "password"}
+  id="password"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+  placeholder="Enter your password"
+  required
+/>
+<label htmlFor="confirmPassword">Confirm Password</label>
+<input
+  type={showPassword ? "text" : "password"}
+  id="confirmPassword"
+  value={confirmPassword}
+  onChange={(e) => setConfirmPassword(e.target.value)}
+  placeholder="Repeat your password"
+  required
+/>
+
+          <label>
+            <input
+              type="checkbox"
+              checked={showPassword}
+              onChange={() => setShowPassword(!showPassword)}
+            />{" "}
+            Show Password
+          </label>
         </div>
         {message && (
           <p className={isSuccess ? "register-success" : "register-error"}>

@@ -33,6 +33,7 @@
   border-radius: 6px;
   font-size: 0.95rem;
   transition: border 0.2s;
+  color: #444;
 }
 
 .login-input-group input:focus {

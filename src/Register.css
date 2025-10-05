@@ -33,6 +33,12 @@
   border-radius: 6px;
   font-size: 0.95rem;
   transition: border 0.2s;
+  color: #444;
+}
+
+.register-input-group input + label,
+.register-input-group input + input {
+  margin-top: 0.8rem; /* adds space above following label/input */
 }
 
 .register-input-group input:focus {
